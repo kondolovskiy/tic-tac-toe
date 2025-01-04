@@ -1,0 +1,18 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": ["backend", "frontend", "shared"],
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "init-shared": "mkdir -p backend/src/shared && cp shared/* backend/src/shared && mkdir -p frontend/src/shared && cp shared/* frontend/src/shared",
+    "bootstrap": "yarn init-shared && yarn --cwd backend install && yarn --cwd frontend install",
+    "dev": "concurrently \"yarn --cwd backend dev\" \"yarn --cwd frontend dev\"",
+    "build": "yarn --cwd backend build && yarn --cwd frontend build",
+    "test": "yarn --cwd backend test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

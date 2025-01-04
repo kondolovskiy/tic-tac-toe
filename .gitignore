@@ -1,0 +1,12 @@
+.env
+**/node_modules
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode
+frontend/dist
+backend/dist
+frontend/src/shared
+backend/src/shared
+
+dist
