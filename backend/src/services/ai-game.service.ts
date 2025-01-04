@@ -2,15 +2,17 @@ import { GameStrategy } from '../helpers/game.strategy';
 import { Board, Square, WinningCombination } from '../shared/types';
 import { CORNERS, SIDES, WINNING_POSITIONS } from '../shared/constants';
 
+type Player = 'X' | 'O';
+
 export class AIGameService implements GameStrategy {
     
-    private player: 'X' | 'O';
+    private player: Player;
 
-    constructor(player: 'X' | 'O') {
+    constructor(player: Player) {
         this.player = player;
     }
 
-    private findWinningMove = (squares: Board, player: 'X' | 'O'): number | null => {
+    private findWinningMove = (squares: Board, player: Player): number | null => {
         const lines: WinningCombination[] = WINNING_POSITIONS;
     
         for (const [a, b, c] of lines) {
@@ -22,7 +24,7 @@ export class AIGameService implements GameStrategy {
         return null;
     };
 
-    private getOpponent = (player: 'X' | 'O'): 'X' | 'O' => {
+    private getOpponent = (player: Player): Player => {
         return player === 'X' ? 'O' : 'X';
     }
 
@@ -59,7 +61,7 @@ export class AIGameService implements GameStrategy {
         return emptySquares[Math.floor(Math.random() * emptySquares.length)];
     };
 
-    getNextMove = (board: Board, player: 'X' | 'O'): number | null => {
+    getNextMove = (board: Board, player: Player): number | null => {
         if (player === this.player) return this.getSmartComputerMove(board);
         return null;
     };

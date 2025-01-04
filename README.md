@@ -1,6 +1,6 @@
 # Tic Tac Toe Game
 
-A multiplayer Tic Tac Toe game with client-server architecture.
+A Tic Tac Toe game with client-server architecture.
 
 ## Project Structure
 
